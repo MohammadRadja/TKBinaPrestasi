@@ -1,0 +1,301 @@
+h1 {
+    font-family: "Algerian";
+    font-weight: 500;
+    line-height: 1.2;
+    color: black;
+    font-size: calc(1.375rem + 1.5vw);
+}
+
+h4 {
+    font-family: "Algerian";
+    font-weight: 500;
+    line-height: 1.2;
+    color: white;
+    font-size: calc(1.375rem + 1.5vw);
+}
+
+#btnDaftar {
+    color: white;
+    background-color: #3f417e;
+}
+
+#btnDaftar:hover {
+    color: #fdee1d;
+}
+
+.list-unstyled-kontak li a {
+    color: black;
+    text-decoration: none;
+}
+
+.list-unstyled-kontak li a:hover {
+    text-decoration: underline;
+    color: #3f417e;
+}
+
+/* Navbar */
+.navbar {
+    background-color: #3f417e;
+}
+
+.custom-navbar .navbar-nav .nav-link {
+    color: white;
+}
+
+.custom-navbar .navbar-brand span {
+    color: white;
+}
+
+.custom-navbar .navbar-nav .nav-link:hover {
+    color: #fdee1d;
+}
+
+#backToTopBtn {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 30px;
+    z-index: 99;
+    border: none;
+    outline: none;
+    background-color: #3f417e;
+    color: #fff;
+    cursor: pointer;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    padding: 13px 20px;
+}
+
+#backToTopBtn:hover {
+    background-color: #fff;
+    color: #3f417e;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+.menu {
+    margin-top: 50px;
+}
+
+.content {
+    flex: 1;
+}
+
+title {
+    font-family: "Algerian", serif;
+}
+
+.banner {
+    background-size: cover;
+    width: 100%;
+    padding-top: 20%;
+    padding-bottom: 20%;
+    color: #ffffff;
+    background-image: url();
+    position: relative;
+}
+
+.banner .overlay {
+    width: 100%;
+    height: 100%;
+    background-color: rgb(24, 69, 159);
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.card {
+    height: 100%;
+}
+
+.lingkaran i {
+    position: relative;
+    top: 30px;
+}
+
+.crop-img {
+    object-fit: cover;
+}
+
+.tim img {
+    width: 250px;
+    border: 10px solid #cccccc;
+}
+
+.register-section .icon-round {
+    background-color: rgb(31, 10, 150);
+    color: #fff;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20px auto 40px auto;
+    width: 4rem;
+    height: 4rem;
+    border-radius: 99rem;
+}
+
+.register-section .btn-primary {
+    background-color: rgb(22, 98, 169);
+}
+
+/* Footer  */
+.ftco-footer-widget .icon .logo {
+    max-width: 150px;
+}
+
+.list-unstyled li {
+    margin-bottom: 10px;
+}
+
+/* Warna latar belakang footer */
+.bg-footer {
+    background-color: #3f417e;
+}
+
+/* Warna latar belakang bagian bawah footer */
+.bg-footer-bottom {
+    background-color: #ffffff;
+}
+
+/* Warna teks pada bagian bawah footer */
+.text-footer-bottom {
+    color: #3f417e;
+}
+
+.list-unstyled {
+    padding-left: 0;
+}
+
+.list-unstyled li {
+    display: flex;
+    align-items: center;
+}
+
+.list-unstyled li .fas {
+    width: 20px;
+    margin-right: 5px;
+}
+
+/* Warna teks untuk link */
+footer {
+    color: white;
+    text-align: center;
+    width: 100%;
+    bottom: 0;
+    background-color: rgb(35, 76, 159);
+    border-top: 1px solid #ddd;
+}
+
+footer a {
+    color: white;
+    text-decoration: none;
+    margin: 0 10px;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+.footer-logo img {
+    height: 96px;
+    margin-bottom: 20px;
+}
+
+.footer-contact ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-contact ul li {
+    margin-bottom: 10px;
+}
+
+.social-icons a {
+    font-size: 24px;
+    margin: 0 10px;
+    transition: color 0.3s;
+}
+
+.social-icons i {
+    color: #000000;
+}
+
+.social-icons a:hover {
+    color: #ffc107;
+}
+
+.footer-contact ul li i {
+    margin-right: 10px;
+}
+
+.footer-bottom {
+    border-top: 1px solid #000;
+    padding-top: 5px;
+    margin-top: 20px;
+    margin-bottom: 0;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-back-to-top:hover {
+    background-color: #0056b3;
+}
+
+.btn-back-to-top.show {
+    display: block;
+}
+
+.custom-navbar .navbar-nav .nav-link {
+    color: rgb(10, 10, 113);
+}
+.custom-navbar .navbar-brand span {
+    color: rgb(10, 10, 113);
+}
+.custom-navbar .nav-link:hover {
+    color: #ffc107;
+}
+.carousel-item {
+    height: 40vh;
+}
+.carousel-item img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+}
+.banner-content {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    padding: 100px 0;
+}
+footer {
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 30px;
+}
+.social-icons a {
+    color: #fff;
+    margin: 0 10px;
+    font-size: 20px;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+.social-icons a:hover {
+    color: yellow;
+}
