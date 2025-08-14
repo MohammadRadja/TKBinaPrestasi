@@ -16,6 +16,7 @@ use App\Models\AktivitasHarian;
 use App\Models\SuratPemberitahuan;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Exports\SiswaExport;
+use App\Exports\NilaiSiswaExport;
 use App\Exports\GuruExport;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Validation\ValidationException;
@@ -151,8 +152,10 @@ class AdminController extends Controller
 
             return response()->json(['success' => true, 'message' => 'Data Kelas berhasil ditambahkan.']);
         } catch (ValidationException $e) {
+            Log::error($e);
             return response()->json(['success' => false, 'errors' => $e->errors()], 422);
         } catch (\Exception $e) {
+            Log::error($e);
             return response()->json(['success' => false, 'message' => $e->getMessage()], 500);
         }
     }
@@ -191,8 +194,12 @@ class AdminController extends Controller
     public function dataGuru()
     {
         $guru = Guru::with('pengguna', 'kelas')->get();
-
-        return view('admin.data-guru', compact('guru'));
+        $kelasList = Kelas::all()->mapWithKeys(function ($kelas) {
+            return [
+                $kelas->id => $kelas->nama_kelas . ' - Tingkat: ' . $kelas->tingkat . ' - Tahun Ajaran: ' . $kelas->tahun_ajaran,
+            ];
+        });
+        return view('admin.data-guru', compact('guru', 'kelasList'));
     }
 
     public function tambahGuru(Request $request)
@@ -224,8 +231,10 @@ class AdminController extends Controller
 
             return response()->json(['success' => true, 'message' => 'Data guru berhasil ditambahkan.']);
         } catch (ValidationException $e) {
+            Log::error($e);
             return response()->json(['success' => false, 'errors' => $e->errors()], 422);
         } catch (\Exception $e) {
+            Log::error($e);
             return response()->json(['success' => false, 'message' => $e->getMessage()], 500);
         }
     }
@@ -345,6 +354,11 @@ class AdminController extends Controller
         }
     }
 
+    public function exportNilai()
+    {
+        return Excel::download(new NilaiSiswaExport(), 'data_nilai.xlsx');
+    }
+
     /** ========================== 🟢 AKTIVITAS SISWA ========================== */
     public function dataAktivitas()
     {
@@ -437,15 +451,21 @@ class AdminController extends Controller
                 'target_role' => 'required|string',
             ]);
 
+            $pengguna_id = session('pengguna_id');
+            if (!$pengguna_id) {
+                return response()->json(['success' => false, 'message' => 'Anda harus login terlebih dahulu'], 401);
+            }
+
             SuratPemberitahuan::create([
                 'judul' => $request->judul,
                 'isi' => $request->isi,
-                'dibuat_oleh' => Auth::id(),
+                'dibuat_oleh' => $pengguna_id,
                 'target_role' => $request->target_role,
             ]);
 
             return response()->json(['success' => true, 'message' => 'Surat Pemberitahuan berhasil dibuat.']);
         } catch (\Exception $e) {
+            Log::error($e);
             return response()->json(['success' => false, 'message' => $e->getMessage()], 500);
         }
     }

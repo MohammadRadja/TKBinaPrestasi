@@ -4,7 +4,7 @@
     <section class="container mt-4">
         <div class="card shadow-sm border-0">
             <div class="card-header bg-primary text-white d-flex justify-content-between align-items-center">
-                <h4 class="mb-0 fw-bold text-white">Daftar Aktivitas Harian</h4>
+                <h4 class="mb-0 fw-bold text-white ms-5">Daftar Aktivitas Harian</h4>
                 <div class="d-flex gap-2">
                     {{-- Sorting --}}
                     <select class="form-select form-select-sm" data-sort data-target="#aktivitasTableBody">
@@ -14,8 +14,8 @@
                     </select>
 
                     {{-- Tambah Aktivitas --}}
-                    <button class="btn btn-success" data-crud="add" data-method="POST" data-title="Tambah Aktivitas"
-                        data-url="{{ route('guru.aktivitas.store') }}"
+                    <button class="btn text-muted bg-light px-5 text-nowrap" data-crud="add" data-method="POST"
+                        data-title="Tambah Aktivitas" data-url="{{ route('guru.aktivitas.store') }}"
                         data-fields='{
                             "siswa_id": {"label": "Nama Siswa", "type": "select", "placeholder": "Pilih siswa", "options": @json($siswaList), "hint":"Pilih siswa yang melakukan aktivitas."},
                             "kelas_id": {"label": "Kelas", "type": "select", "placeholder": "Pilih kelas", "options": @json($kelasList), "hint":"Pilih kelas siswa."},
@@ -34,7 +34,7 @@
                 <div class="table-responsive">
                     <table class="table table-hover table-striped mb-0">
                         <thead class="table-light">
-                            <tr>
+                            <tr class="text-center">
                                 <th>Nama Siswa</th>
                                 <th>Guru</th>
                                 <th>Tanggal</th>
@@ -46,7 +46,7 @@
                         </thead>
                         <tbody id="aktivitasTableBody">
                             @forelse ($aktivitas as $item)
-                                <tr>
+                                <tr class="text-center">
                                     <td>{{ $item->siswa->nama_lengkap ?? '-' }}</td>
                                     <td>{{ $item->guru->nama_lengkap ?? '-' }}</td>
                                     <td>{{ \Carbon\Carbon::parse($item->tanggal)->format('d M Y') }}</td>

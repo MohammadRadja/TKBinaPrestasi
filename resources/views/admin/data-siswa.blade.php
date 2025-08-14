@@ -4,7 +4,7 @@
     <section class="container mt-4">
         <div class="card shadow-sm border-0">
             <div class="card-header bg-primary text-white d-flex justify-content-between align-items-center">
-                <h4 class="mb-0 fw-bold text-white">Daftar Siswa</h4>
+                <h4 class="mb-0 fw-bold text-white ms-5">Daftar Siswa</h4>
                 <div class="d-flex gap-2">
                     <select class="form-select form-select-sm" data-sort data-target="#siswaTableBody">
                         <option value="default">Sort by</option>
@@ -13,8 +13,8 @@
                     </select>
 
                     {{-- Tambah Siswa --}}
-                    <button class="btn btn-success" data-crud="add" data-method="POST" data-title="Tambah Siswa"
-                        data-url="{{ route('admin.siswa.store') }}"
+                    <button class="btn bg-light text-muted text-nowrap" data-crud="add" data-method="POST"
+                        data-title="Tambah Siswa" data-url="{{ route('admin.siswa.store') }}"
                         data-fields='{
                         "nama_lengkap": {"label": "Nama Lengkap", "placeholder":"Masukkan nama lengkap siswa", "hint":"Gunakan huruf sesuai akta kelahiran."},
                         "kelas_id": {"label": "Kelas", "type":"select", "placeholder":"Pilih kelas", "options": @json($kelasList), "hint":"Pilih kelas siswa."},
@@ -37,7 +37,7 @@
                     </button>
 
                     {{-- Export --}}
-                    <a href="{{ route('admin.siswa.export') }}" class="btn btn-info btn-sm">
+                    <a href="{{ route('admin.siswa.export') }}" class="btn bg-light text-muted text-nowrap btn-sm">
                         <i class="fas fa-file-export"></i> Export
                     </a>
                 </div>
@@ -48,7 +48,7 @@
                 <div class="table-responsive">
                     <table class="table table-hover table-striped mb-0">
                         <thead class="table-light">
-                            <tr>
+                            <tr class="text-center">
                                 <th>Nama Lengkap</th>
                                 <th>Kelas</th>
                                 <th>Nama Panggilan</th>
@@ -69,9 +69,9 @@
                         </thead>
                         <tbody id="siswaTableBody">
                             @forelse ($siswa as $item)
-                                <tr>
+                                <tr class="text-center">
                                     <td>{{ $item->nama_lengkap }}</td>
-                                    <td>{{ 'TK ' . $item->kelas->tingkat . ' - ' . $item->kelas->nama_kelas . ' (' . $item->kelas->tahun_ajaran . ')' }}
+                                    <td>{{ 'TK ' . $item->kelas->tingkat }}
                                     </td>
                                     <td>{{ $item->nama_panggilan }}</td>
                                     <td>{{ $item->jenis_kelamin }}</td>

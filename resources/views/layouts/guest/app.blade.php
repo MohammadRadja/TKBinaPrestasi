@@ -25,7 +25,10 @@
         @yield('content')
     </div>
 
-    @include('layouts.guest.footer')
+    @if (!Route::is('login') && !Route::is('register') && !Route::is('password.request'))
+        @include('layouts.guest.footer')
+    @endif
+
     @include('layouts.guest.scripts')
 </body>
 

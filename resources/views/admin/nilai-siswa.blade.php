@@ -4,7 +4,7 @@
     <section class="container mt-4">
         <div class="card shadow-sm border-0">
             <div class="card-header bg-primary text-white d-flex justify-content-between align-items-center">
-                <h4 class="mb-0 fw-bold text-white">Daftar Nilai Siswa</h4>
+                <h4 class="mb-0 fw-bold text-white ms-5">Daftar Nilai Siswa</h4>
                 <div class="d-flex gap-2">
                     {{-- Sorting --}}
                     <select class="form-select form-select-sm" data-sort data-target="#nilaiTableBody">
@@ -18,8 +18,8 @@
                     </select>
 
                     {{-- Tambah Nilai --}}
-                    <button class="btn btn-success" data-crud="add" data-method="POST" data-title="Tambah Nilai"
-                        data-url="{{ route('admin.nilai.store') }}"
+                    <button class="btn bg-light text-muted text-nowrap" data-crud="add" data-method="POST"
+                        data-title="Tambah Nilai" data-url="{{ route('admin.nilai.store') }}"
                         data-fields='{
                         "guru_id": {"label": "Guru Penilai", "type": "select", "placeholder": "Pilih guru penilai", "options": @json($guruList), "hint":"Guru yang memberikan nilai."},
                         "siswa_id": {"label": "Nama Siswa", "type": "select", "placeholder": "Pilih siswa", "options": @json($siswaList), "hint":"Pilih siswa yang dinilai."},
@@ -31,6 +31,11 @@
                     }'>
                         <i class="fas fa-plus me-1"></i> Tambah Nilai
                     </button>
+
+                    {{-- Export --}}
+                    <a href="{{ route('admin.nilai.export') }}" class="btn bg-light text-muted text-nowrap btn-sm">
+                        <i class="fas fa-file-export"></i> Export
+                    </a>
                 </div>
             </div>
 
@@ -39,7 +44,7 @@
                 <div class="table-responsive">
                     <table class="table table-hover table-striped mb-0">
                         <thead class="table-light">
-                            <tr>
+                            <tr class="text-center">
                                 <th>Nama Siswa</th>
                                 <th>Kelas</th>
                                 <th>Wali Kelas</th>
@@ -53,9 +58,9 @@
                         </thead>
                         <tbody id="nilaiTableBody">
                             @forelse($nilai as $item)
-                                <tr>
+                                <tr class="text-center">
                                     <td>{{ $item->siswa->nama_lengkap ?? '-' }}</td>
-                                    <td>{{ 'TK ' . $item->kelas->tingkat . ' - ' . $item->kelas->nama_kelas . ' (' . $item->kelas->tahun_ajaran . ')' }}
+                                    <td>{{ 'TK ' . $item->kelas->tingkat }}
                                     </td>
                                     <td>{{ $item->guru->nama_lengkap ?? '-' }}</td>
                                     <td>{{ $item->mata_pelajaran }}</td>

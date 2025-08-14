@@ -5,13 +5,13 @@
     <section class="container mt-4">
         <div class="card shadow-sm border-0">
             {{-- Header --}}
-            <div class="card-header bg-success text-white d-flex justify-content-between align-items-center">
-                <h4 class="mb-0 fw-bold">Riwayat Pembayaran Saya</h4>
-                <button class="btn btn-light text-success" data-crud="add" data-method="POST" data-title="Tambah Pembayaran"
+            <div class="card-header bg-primary text-white d-flex justify-content-between align-items-center">
+                <h4 class="mb-0 fw-bold text-white">Riwayat Pembayaran Saya</h4>
+                <button class="btn btn-light text-muted" data-crud="add" data-method="POST" data-title="Tambah Pembayaran"
                     data-url="{{ route('siswa.pembayaran.store') }}"
                     data-fields='{
                     "jenis_pembayaran": {"label":"Jenis Pembayaran","type":"select","options":["pendaftaran","seragam","spp","lainnya"],"placeholder":"Pilih jenis pembayaran"},
-                    "jumlah": {"label":"Jumlah","type":"number","placeholder":"Masukkan jumlah"},
+                    "jumlah": {"label":"Jumlah","placeholder":"Masukkan jumlah"},
                     "metode": {"label":"Metode","type":"select","options":["transfer","tunai"],"placeholder":"Pilih metode"},
                     "tanggal_pembayaran": {"label":"Tanggal Pembayaran","type":"date"},
                     "bukti_pembayaran": {"label":"Bukti Pembayaran","type":"file","placeholder":"Upload bukti"}
@@ -71,7 +71,7 @@
                                                     data-url="{{ route('siswa.pembayaran.update', $item->id) }}"
                                                     data-fields='{
                                                     "jenis_pembayaran": {"label":"Jenis Pembayaran","type":"select","options":["pendaftaran","seragam","spp","lainnya"]},
-                                                    "jumlah": {"label":"Jumlah","type":"number"},
+                                                    "jumlah": {"label":"Jumlah"},
                                                     "metode": {"label":"Metode","type":"select","options":["transfer","tunai"]},
                                                     "tanggal_pembayaran": {"label":"Tanggal Pembayaran","type":"date"},
                                                     "bukti_pembayaran": {"label":"Bukti Pembayaran","type":"file"}

@@ -4,7 +4,7 @@
     <section class="container mt-4">
         <div class="card shadow-sm border-0">
             <div class="card-header bg-primary text-white d-flex justify-content-between align-items-center">
-                <h4 class="mb-0 fw-bold text-white">Daftar Aktivitas Harian</h4>
+                <h4 class="mb-0 fw-bold text-white ms-5">Daftar Aktivitas Harian</h4>
                 <div class="d-flex gap-2">
                     {{-- Sorting --}}
                     <select class="form-select form-select-sm" data-sort data-target="#aktivitasTableBody">
@@ -14,8 +14,8 @@
                     </select>
 
                     {{-- Tambah Aktivitas --}}
-                    <button class="btn btn-success" data-crud="add" data-method="POST" data-title="Tambah Aktivitas"
-                        data-url="{{ route('admin.aktivitas.store') }}"
+                    <button class="btn bg-light text-muted text-nowrap" data-crud="add" data-method="POST"
+                        data-title="Tambah Aktivitas" data-url="{{ route('admin.aktivitas.store') }}"
                         data-fields='{
                             "guru_id": {"label": "Guru", "type": "select", "placeholder": "Pilih guru", "options": @json($guruList), "hint":"Pilih guru yang mengawasi."},
                             "siswa_id": {"label": "Nama Siswa", "type": "select", "placeholder": "Pilih siswa", "options": @json($siswaList), "hint":"Pilih siswa yang melakukan aktivitas."},
@@ -35,7 +35,7 @@
                 <div class="table-responsive">
                     <table class="table table-hover table-striped mb-0">
                         <thead class="table-light">
-                            <tr>
+                            <tr class="text-center">
                                 <th>Guru</th>
                                 <th>Nama Siswa</th>
                                 <th>Kelas</th>
@@ -48,10 +48,10 @@
                         </thead>
                         <tbody id="aktivitasTableBody">
                             @forelse ($aktivitas as $item)
-                                <tr>
+                                <tr class="text-center">
                                     <td>{{ $item->guru->nama_lengkap ?? '-' }}</td>
                                     <td>{{ $item->siswa->nama_lengkap ?? '-' }}</td>
-                                    <td>{{ 'TK ' . $item->siswa->kelas->tingkat . ' - ' . $item->siswa->kelas->nama_kelas . ' (' . $item->siswa->kelas->tahun_ajaran . ')' }}
+                                    <td>{{ 'TK ' . $item->siswa->kelas->tingkat }}
                                     </td>
                                     <td>{{ \Carbon\Carbon::parse($item->tanggal)->format('d M Y') }}</td>
                                     <td>{{ $item->aktivitas }}</td>
@@ -73,6 +73,7 @@
                                                 data-fields='{
                                                     "siswa_id": {"label": "Nama Siswa", "type": "select", "placeholder": "Pilih siswa", "options": @json($siswaList), "hint":"Pilih siswa yang melakukan aktivitas."},
                                                     "guru_id": {"label": "Guru", "type": "select", "placeholder": "Pilih guru", "options": @json($guruList), "hint":"Pilih guru yang mengawasi."},
+                                                    "kelas_id": {"label": "Kelas", "type":"select", "placeholder":"Pilih kelas", "options": @json($kelasList), "hint":"Pilih kelas siswa."},
                                                     "tanggal": {"label": "Tanggal", "type":"date", "placeholder":"Pilih tanggal aktivitas", "hint":"Tanggal aktivitas berlangsung."},
                                                     "aktivitas": {"label": "Aktivitas", "placeholder":"Masukkan aktivitas siswa", "hint":"Deskripsikan aktivitas harian siswa."},
                                                     "catatan": {"label": "Catatan", "type":"textarea", "placeholder":"Tambahkan catatan (opsional)", "hint":"Tambahkan catatan tambahan jika perlu."},

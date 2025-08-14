@@ -139,6 +139,7 @@ Route::prefix('admin')
                 Route::post('/', [AdminController::class, 'tambahNilai'])->name('store');
                 Route::put('/{id}', [AdminController::class, 'updateNilai'])->name('update');
                 Route::delete('/{id}', [AdminController::class, 'deleteNilai'])->name('delete');
+                Route::get('/export', [AdminController::class, 'exportNilai'])->name('export');
             });
 
         /* =======================================================================

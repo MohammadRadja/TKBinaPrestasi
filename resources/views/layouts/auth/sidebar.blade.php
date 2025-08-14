@@ -40,7 +40,7 @@
 
                     <li class="sidebar-header">Manajemen Data</li>
                     <li class="sidebar-item"><a class="sidebar-link" href="{{ route('admin.mading.index') }}"><i
-                                class="fa fa-bullhorn"></i> Mading / Pemberitahuan</a></li>
+                                class="fa fa-bullhorn"></i> Pemberitahuan</a></li>
                     <li class="sidebar-item"><a class="sidebar-link" href="{{ route('admin.siswa.index') }}"><i
                                 class="fa fa-users"></i> Data Siswa</a></li>
                     <li class="sidebar-item"><a class="sidebar-link" href="{{ route('admin.guru.index') }}"><i

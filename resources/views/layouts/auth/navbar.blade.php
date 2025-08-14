@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+<nav class="navbar navbar-expand-lg" style="background-color: #3f417e; color: white">
     <div class="container-fluid">
         <a class="sidebar-toggle js-sidebar-toggle">
             <i class="hamburger align-self-center"></i>
@@ -11,10 +11,10 @@
             <ul class="navbar-nav ms-auto">
 
                 {{-- 🔔 NOTIFIKASI --}}
-                <li class="nav-item dropdown">
+                <li class="nav-item dropdown ">
                     <a class="nav-link dropdown-toggle" href="#" id="notifDropdown" role="button"
                         data-bs-toggle="dropdown" aria-expanded="false">
-                        <i class="fa fa-bell"></i>
+                        <i class="fa fa-bell text-white"></i>
                         @if (isset($notifikasi) && $notifikasi->count() > 0)
                             <span class="badge bg-danger">{{ $notifikasi->count() }}</span>
                         @endif
@@ -37,7 +37,7 @@
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="settingsDropdown" role="button"
                         data-bs-toggle="dropdown" aria-expanded="false">
-                        <i class="fa fa-cog"></i>
+                        <i class="fa fa-cog text-white"></i>
                     </a>
                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="settingsDropdown">
                         @if ($role === 'siswa')

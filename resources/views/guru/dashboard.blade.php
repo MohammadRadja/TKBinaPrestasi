@@ -15,7 +15,7 @@
 
             {{-- 🔹 Mading Sekolah --}}
             <div class="col-md-12 mb-3">
-                <x-card title="Mading Sekolah" icon="fas fa-bullhorn" color="warning">
+                <x-card title="Informasi Terbaru" icon="fas fa-bullhorn" color="warning">
                     @forelse($mading as $surat)
                         <div class="mb-3 border-bottom pb-2">
                             <h6 class="fw-bold">{{ $surat->judul }}</h6>

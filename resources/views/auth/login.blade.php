@@ -3,7 +3,7 @@
 @section('content')
     <section class="container-fluid pt-5 pb-5 bg-light menu">
         <div class="container text-center">
-            <h1 class="display-2 mb-4">LOGIN</h1>
+            <h1 class="mb-4">LOGIN</h1>
         </div>
 
         <div class="container">
@@ -24,7 +24,8 @@
                                     Password</a></p>
                         </div>
                         <div class="text-center">
-                            <button type="submit" class="btn btn-primary btn-lg">Login</button>
+                            <button type="submit" class="btn btn-lg"
+                                style="background-color: #3f417e; color: white">Login</button>
                         </div>
                     </div>
                 </div>

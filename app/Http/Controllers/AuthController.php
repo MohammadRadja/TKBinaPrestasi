@@ -14,6 +14,7 @@ use Illuminate\Support\Str;
 use Exception;
 use App\Services\NotificationService;
 use Illuminate\Support\Facades\Log;
+use App\Models\Kelas;
 
 class AuthController extends Controller
 {
@@ -67,7 +68,12 @@ class AuthController extends Controller
     /* ========================== REGISTER SISWA ========================== */
     public function showRegisterForm()
     {
-        return view('auth.register');
+        $kelasList = Kelas::select('tingkat')
+            ->distinct()
+            ->orderBy('tingkat')
+            ->pluck('tingkat');
+
+        return view('auth.register', compact('kelasList'));
     }
 
     public function register(Request $request)
@@ -93,6 +99,7 @@ class AuthController extends Controller
                 'pengguna_id' => $pengguna->id,
                 'nama_lengkap' => $request->nama_lengkap,
                 'nama_panggilan' => $request->nama_panggilan,
+                'kelas_id' => Kelas::where('tingkat', $request->kelas)->first()->id,
                 'jenis_kelamin' => $request->jenis_kelamin,
                 'tempat_tanggal_lahir' => $request->tempat_tanggal_lahir,
                 'agama' => $request->agama,

@@ -4,7 +4,7 @@
     <section class="container mt-4">
         <div class="card shadow-sm border-0">
             <div class="card-header bg-primary text-white d-flex justify-content-between align-items-center">
-                <h4 class="mb-0 fw-bold text-white">Daftar Pembayaran</h4>
+                <h4 class="mb-0 fw-bold text-white ms-5">Daftar Pembayaran</h4>
                 <div class="d-flex gap-2">
                     {{-- Sort --}}
                     <select class="form-select form-select-sm" data-sort data-target="#pembayaranTableBody">
@@ -21,7 +21,7 @@
                 <div class="table-responsive">
                     <table class="table table-hover table-striped mb-0">
                         <thead class="table-light">
-                            <tr>
+                            <tr class="text-center">
                                 <th>Nama Siswa</th>
                                 <th>Tanggal Bayar</th>
                                 <th>Jumlah</th>
@@ -33,7 +33,7 @@
                         </thead>
                         <tbody id="pembayaranTableBody">
                             @forelse($pembayaran as $item)
-                                <tr>
+                                <tr class="text-center">
                                     <td>{{ $item->siswa->nama_lengkap }}</td>
                                     <td>{{ $item->tanggal_pembayaran }}</td>
                                     <td>Rp {{ number_format($item->jumlah, 0, ',', '.') }}</td>

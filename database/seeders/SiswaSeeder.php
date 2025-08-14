@@ -45,8 +45,8 @@ class SiswaSeeder extends Seeder
                 $penggunaData[] = [
                     'id' => $penggunaId,
                     'nama_lengkap' => $nama,
-                    'username' => strtolower($panggilan) . $counter,
-                    'email' => strtolower($panggilan) . $counter . '@example.com',
+                    'username' => strtolower($panggilan),
+                    'email' => strtolower($panggilan) . '@example.com',
                     'password' => Hash::make('siswa123'),
                     'role' => 'siswa',
                     'created_at' => now(),

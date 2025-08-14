@@ -7,11 +7,11 @@
                 <h4 class="mb-0 fw-bold text-white">Daftar Kelas</h4>
                 <div class="d-flex gap-2">
                     {{-- Tambah Kelas --}}
-                    <button class="btn btn-success" data-crud="add" data-method="POST" data-title="Tambah Kelas"
-                        data-url="{{ route('admin.kelas.store') }}"
+                    <button class="btn bg-light text-muted text-nowrap" data-crud="add" data-method="POST"
+                        data-title="Tambah Kelas" data-url="{{ route('admin.kelas.store') }}"
                         data-fields='{
                         "nama_kelas": {"label": "Nama Kelas", "placeholder":"Masukkan nama kelas", "hint":"Contoh: Kelas A, Kelas B, Kelas C."},
-                        "tingkat": {"label": "Tingkat", "placeholder":"Masukkan tingkat kelas", "hint":"Contoh: A atau B."},
+                        "tingkat": {"label": "Tingkat", "type": "select", "options": {"A": "A", "B": "B"}, "placeholder": "Pilih tingkat kelas"},
                         "kapasitas": {"label": "Kapasitas", "type":"number", "placeholder":"Masukkan kapasitas siswa", "hint":"Jumlah maksimal siswa di kelas."},
                         "tahun_ajaran": {"label": "Tahun Ajaran", "placeholder":"Contoh: 2024/2025", "hint":"Gunakan format tahun ajaran."},
                         "guru_id": {"label": "Wali Kelas", "type":"select", "placeholder":"Pilih wali kelas", "options": @json($guruList), "hint":"Pilih guru yang menjadi wali kelas."}
@@ -26,10 +26,9 @@
                 <div class="table-responsive">
                     <table class="table table-hover table-striped mb-0">
                         <thead class="table-light">
-                            <tr>
-                                <th>Nama Kelas</th>
-                                <th>Tingkat</th>
-                                <th>Kapasitas</th>
+                            <tr class="text-center">
+                                <th>Kelas</th>
+                                <th>Total</th>
                                 <th>Tahun Ajaran</th>
                                 <th>Wali Kelas</th>
                                 <th class="text-center">Aksi</th>
@@ -37,9 +36,10 @@
                         </thead>
                         <tbody>
                             @forelse ($kelas as $item)
-                                <tr>
-                                    <td>{{ $item->nama_kelas }}</td>
-                                    <td>{{ $item->tingkat }}</td>
+                                <tr class="text-center">
+                                    <td>
+                                        {{ $item->tingkat == 'A' ? 'TK A' : ($item->tingkat == 'B' ? 'TK B' : '-') }}
+                                    </td>
                                     <td>{{ $item->kapasitas }}</td>
                                     <td>{{ $item->tahun_ajaran }}</td>
                                     <td>{{ $item->guru->nama_lengkap }}</td>
@@ -51,7 +51,7 @@
                                                 data-url="{{ route('admin.kelas.update', $item->id) }}"
                                                 data-fields='{
                                                 "nama_kelas": {"label": "Nama Kelas", "placeholder":"Masukkan nama kelas", "hint":"Contoh: A, B, C."},
-                                                "tingkat": {"label": "Tingkat", "placeholder":"Masukkan tingkat kelas", "hint":"Contoh: TK A atau TK B."},
+                                                "tingkat": {"label": "Tingkat", "type": "select", "options": {"A": "A", "B": "B"}, "placeholder": "Pilih tingkat kelas"},
                                                 "kapasitas": {"label": "Kapasitas", "type":"number", "placeholder":"Masukkan kapasitas siswa", "hint":"Jumlah maksimal siswa di kelas."},
                                                 "tahun_ajaran": {"label": "Tahun Ajaran", "placeholder":"Contoh: 2024/2025", "hint":"Gunakan format tahun ajaran."},
                                                 "guru_id": {"label": "Wali Kelas", "type":"select", "placeholder":"Pilih wali kelas", "options": @json($guruList), "hint":"Pilih guru yang menjadi wali kelas."}

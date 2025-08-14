@@ -4238,7 +4238,7 @@ fieldset:disabled .btn {
 }
 .card-body {
     flex: 1 1 auto;
-    padding: 1.25rem;
+    padding: 1rem;
 }
 .card-title {
     margin-bottom: 0.5rem;
@@ -4260,7 +4260,7 @@ fieldset:disabled .btn {
     background-color: #fff;
     border-bottom: 0 solid transparent;
     margin-bottom: 0;
-    padding: 1rem 1.25rem;
+    padding: 0.2rem;
 }
 .card-header:first-child {
     border-radius: 0.25rem 0.25rem 0 0;
@@ -10669,9 +10669,6 @@ fieldset:disabled .btn {
 .card {
     box-shadow: 0 0 0.875rem 0 rgba(33, 37, 41, 0.05);
     margin-bottom: 24px;
-}
-.card-header {
-    border-bottom-width: 1px;
 }
 .card-title {
     color: #939ba2;

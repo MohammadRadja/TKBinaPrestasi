@@ -7,7 +7,6 @@
             <div class="card shadow border-0">
                 <div class="card-header bg-primary text-white text-center py-3">
                     <h4 class="mb-0 fw-bold text-white">📝 Formulir Biodata Siswa</h4>
-                    <small>Lengkapi data berikut untuk pendaftaran TKIT Bina Prestasi</small>
                 </div>
 
                 <div class="card-body p-4">

@@ -3,7 +3,7 @@
 @section('content')
     <div class="container-fluid pt-5 pb-5 bg-light menu">
         <div class="container text-center">
-            <h1 class="display-2 mb-4">RESET PASSWORD</h1>
+            <h1 class="mb-4">RESET PASSWORD</h1>
         </div>
         <div class="container">
             <form method="POST" action="{{ route('password.reset') }}" class="row g-3">
@@ -33,11 +33,9 @@
                                 {{ $errors->first() }}
                             </div>
                         @endif
-                        <div class="mb-3 text-center">
-                            <p>Sudah Punya Akun? <a href="/login" class="text-decoration-none">Login Disini</a></p>
-                        </div>
                         <div class="text-center">
-                            <button type="submit" class="btn btn-primary btn-lg">Reset Password</button>
+                            <button type="submit" class="btn btn-lg" style="background-color: #3f417e; color: white">Reset
+                                Password</button>
                         </div>
                     </div>
                 </div>

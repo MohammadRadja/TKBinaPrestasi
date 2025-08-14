@@ -3,7 +3,7 @@
         <div class="row text-muted">
             <div class="col-6 text-start">
                 <p class="mb-0">
-                    &copy;<strong> Copyright 2024</strong>
+                    &copy;<strong> Copyright {{ date('Y') }}</strong>
                 </p>
             </div>
         </div>

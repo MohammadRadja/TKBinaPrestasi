@@ -9,7 +9,7 @@
             <!-- Info Kontak -->
             <div class="col-md-6 d-flex">
                 <div class="p-4 shadow-sm rounded bg-light border-start border-4 border-primary w-100">
-                    <h4 class="mb-4 fw-bold text-primary">Informasi Kontak</h4>
+                    <h4 class="mb-4 fw-bold text-dark">Informasi Kontak</h4>
                     <ul class="list-unstyled mb-0">
                         <li class="d-flex align-items-center mb-3">
                             <i class="fas fa-envelope text-primary fs-5 me-2"></i>
@@ -58,7 +58,9 @@
                             <div>
                                 <div class="fw-semibold text-dark">Alamat:</div>
                                 <a href="https://maps.app.goo.gl/n2S7fMC76V5HtWrY6"
-                                    class="text-muted text-decoration-none">Villa Mutiara Pluit Blok F3 No.43, Tangerang</a>
+                                    class="text-muted text-decoration-none">Villa Mutiara Pluit Blok F3 No. 43, RT 007, RW
+                                    009,
+                                    Kel. Periuk, Kec. Periuk, Kota Tangerang, Banten 15131</a>
                             </div>
                         </li>
                     </ul>
@@ -80,7 +82,7 @@
     <!-- FAQ -->
     <section class="py-5 bg-light">
         <div class="container">
-            <h2 class="text-center fw-bold mb-4 text-primary">❓ Frequently Asked Questions</h2>
+            <h1 class="text-center fw-bold mb-4 text-dark">FREQUENTLY ASKED QUESTIONS</h1>
             <div class="accordion shadow rounded" id="faqAccordion">
                 @foreach ([
             ['Bagaimana Cara Daftar ke TKIT Bina Prestasi?', '<ul><li>Datang langsung ke Kantor TKIT Bina Prestasi</li><li>Daftar online <a href="' . route('register.post') . '">Klik Disini</a></li><li>Info lebih lanjut hubungi admin <a href="http://wa.me/6285765549259">Klik Disini</a></li></ul>'],
@@ -91,7 +93,7 @@
         ] as $key => $faq)
                     <div class="accordion-item">
                         <h2 class="accordion-header" id="heading{{ $key }}">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse"
                                 data-bs-target="#collapse{{ $key }}">
                                 {{ $faq[0] }}
                             </button>
@@ -107,7 +109,8 @@
     </section>
 
     <!-- Tombol Back to Top -->
-    <a href="#top" class="btn btn-primary rounded-circle shadow position-fixed bottom-0 end-0 m-4">
+    <button class="btn btn-dark position-fixed bottom-0 end-0 m-4 rounded-circle shadow" id="backToTopBtn"
+        title="Go to top">
         <i class="fas fa-arrow-up"></i>
-    </a>
+    </button>
 @endsection

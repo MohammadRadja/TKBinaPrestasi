@@ -38,7 +38,7 @@
                         'value' => $jumlah_guru,
                     ],
                     [
-                        'title' => 'Total Mading',
+                        'title' => 'Total Pemberitahuan',
                         'icon' => 'fas fa-bullhorn',
                         'color' => 'warning',
                         'value' => $jumlah_mading,
@@ -58,17 +58,19 @@
                 ];
             @endphp
 
-            @foreach ($stats as $stat)
-                <div class="col-md-3 col-6">
-                    <x-card title="{{ $stat['title'] }}" icon="{{ $stat['icon'] }}" color="{{ $stat['color'] }}">
-                        <h2 class="fw-bold text-center mb-0">{{ $stat['value'] }}</h2>
-                    </x-card>
-                </div>
-            @endforeach
+            <div class="row">
+                @foreach ($stats as $stat)
+                    <div class="col-md-2 col-6 text-center">
+                        <x-card title="{{ $stat['title'] }}" icon="{{ $stat['icon'] }}" color="{{ $stat['color'] }}">
+                            <h2 class="fw-bold mb-0">{{ $stat['value'] }}</h2>
+                        </x-card>
+                    </div>
+                @endforeach
+            </div>
 
             {{-- 🔹 Mading --}}
             <div class="col-12">
-                <x-card title="📢 Surat Pemberitahuan / Mading" icon="fas fa-bullhorn" color="warning">
+                <x-card title="Surat Pemberitahuan" icon="fas fa-bullhorn" color="warning">
                     <x-slot name="action">
                         <a href="{{ route('admin.mading.index') }}" class="btn btn-sm btn-light">
                             <i class="fas fa-cogs"></i> Kelola
@@ -89,7 +91,7 @@
 
             {{-- 🔹 Ranking Siswa Berdasarkan Kelas --}}
             <div class="col-12">
-                <x-card title="🏆 Ranking Siswa Berdasarkan Kelas (Top 5 per Kelas)" icon="fas fa-trophy" color="info">
+                <x-card title="Ranking Siswa Berdasarkan Kelas (Top 5 per Kelas)" icon="fas fa-trophy" color="info">
                     @forelse($ranking_per_kelas as $kelasId => $siswaList)
                         @php
                             $kelas = $siswaList->first()->kelas;
@@ -102,7 +104,7 @@
                             <table class="table table-hover align-middle">
                                 <thead class="table-light">
                                     <tr>
-                                        <th>#</th>
+                                        <th>No</th>
                                         <th>Nama Siswa</th>
                                         <th>Rata-rata Nilai</th>
                                     </tr>

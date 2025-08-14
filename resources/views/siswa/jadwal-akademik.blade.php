@@ -2,10 +2,10 @@
 @section('judul', 'TKIT BINA PRESTASI - Jadwal')
 @section('content')
     <div class="container-fluid pb-5 bg-light">
-        <h3 class="text-center mb-4">Jadwal Sekolah</h3>
+        <h1 class="text-center mb-4 fw-bold">Jadwal Sekolah</h1>
         <div class="card shadow-sm mb-4">
             <div class="card-header">
-                <h4 class="font-weight-bold">Kegiatan Harian</h4>
+                <h4 class="text-dark">Kegiatan Harian</h4>
             </div>
             <div class="card-body">
                 <div class="table-responsive">
@@ -60,37 +60,38 @@
                             <tr>
                                 <td class="text-center">07:30-08:00</td>
                                 <td>Mengaji</td>
-                                <td>PG, TK A, TK B</td>
+                                <td class="text-center">PG, TK A, TK B</td>
                             </tr>
                             <tr>
                                 <td class="text-center">08:00-08:15</td>
                                 <td>Berbaris</td>
-                                <td>PG, TK A, TK B</td>
+                                <td class="text-center">PG, TK A, TK B</td>
                             </tr>
                             <tr>
                                 <td class="text-center">08:15-09:00</td>
-                                <td>Pembukaan Shalat Dhuha/Shalat Fardhu dan Hafalan Hadist/Doa-Doa Harian/Surat-Surat Pendek</td>
-                                <td>PG, TK A, TK B</td>
+                                <td>Pembukaan Shalat Dhuha/Shalat Fardhu dan Hafalan Hadist/Doa-Doa Harian/Surat-Surat
+                                    Pendek</td>
+                                <td class="text-center">PG, TK A, TK B</td>
                             </tr>
                             <tr>
                                 <td class="text-center">09:00-09:30</td>
                                 <td>Kognitif/Bahasa</td>
-                                <td>PG, TK A, TK B</td>
+                                <td class="text-center">PG, TK A, TK B</td>
                             </tr>
                             <tr>
                                 <td class="text-center">09:30-09:45</td>
                                 <td>Istirahat</td>
-                                <td>PG, TK A, TK B</td>
+                                <td class="text-center">PG, TK A, TK B</td>
                             </tr>
                             <tr>
                                 <td class="text-center">09:45-10:00</td>
                                 <td>Recalling, Refleksi, dan Pulang</td>
-                                <td>PG, TK A</td>
+                                <td class="text-center">PG, TK A</td>
                             </tr>
                             <tr>
                                 <td class="text-center">10:00-10:30</td>
                                 <td>Membaca dan Dikte</td>
-                                <td>TK B</td>
+                                <td class="text-center">TK B</td>
                             </tr>
                         </tbody>
                     </table>
@@ -113,7 +114,7 @@
                         <tbody>
                             <tr>
                                 <td class="text-center">Kamis Minggu ke-1</td>
-                                <td  class="text-center">Cooking Class</td>
+                                <td class="text-center">Cooking Class</td>
                             </tr>
                             <tr>
                                 <td class="text-center">Kamis Minggu ke-2</td>
@@ -249,7 +250,8 @@
                             </tr>
                             <tr>
                                 <td class="text-center">Rabu, 2 Oktober 2024</td>
-                                <td>Memperingati Hari Batik Nasional: Memakai Baju Batik dan Membuat Batik dengan Menggunakan Teknik Eco Print</td>
+                                <td>Memperingati Hari Batik Nasional: Memakai Baju Batik dan Membuat Batik dengan
+                                    Menggunakan Teknik Eco Print</td>
                                 <td> </td>
                             </tr>
                             <tr>
@@ -259,7 +261,8 @@
                             </tr>
                             <tr>
                                 <td class="text-center">Sabtu, 9 November 2024</td>
-                                <td>Memperingati Hari Ayah: Kegiatan 1 Hari Bersama Ayah (Melukis Anak dan melengkapi lukisan)</td>
+                                <td>Memperingati Hari Ayah: Kegiatan 1 Hari Bersama Ayah (Melukis Anak dan melengkapi
+                                    lukisan)</td>
                                 <td> </td>
                             </tr>
                             <tr>
@@ -299,26 +302,33 @@
         .card {
             border-radius: 10px;
         }
+
         .card-header {
             background-color: #343a40;
             color: white;
         }
+
         .font-weight-bold {
             font-weight: bold !important;
         }
+
         .mb-4 {
             margin-bottom: 1.5rem !important;
         }
+
         .mb-3 {
             margin-bottom: 1rem !important;
         }
+
         .bg-light {
             background-color: #f8f9fa !important;
         }
+
         .table-dark {
             background-color: #343a40;
             color: #fff;
         }
+
         .table-striped tbody tr:nth-of-type(odd) {
             background-color: rgba(0, 0, 0, 0.05);
         }

@@ -124,13 +124,13 @@
                     <button id="show-main-input" class="btn btn-primary">Tulis Pesan Baru</button>
                 </div>
                 <!-- Kolom Input Utama -->
-                <div id="main-input-container" class="fixed bg-light p-3 shadow-sm" style="display: none;">
+                <div id="main-input-container" class="fixed bg-light p-3 shadow-sm col-4" style="display: none;">
                     <form id="main-input-form" action="{{ route('forum.pesan.kirim') }}" method="POST" class="mb-0">
                         @csrf
                         <div class="input-group">
-                            <textarea name="isi_pesan" class="form-control" placeholder="Tulis pesan..." rows="2"></textarea>
-                            <div class="input-group-append">
-                                <button type="submit" class="btn btn-primary">Kirim</button>
+                            <textarea name="isi_pesan" class="form-control" placeholder="Tulis pesan..." rows="4"></textarea>
+                            <div class="input-group-append ms-2">
+                                <button type="submit" class="btn btn-primary btn-lg">Kirim</button>
                             </div>
                         </div>
                     </form>

@@ -4,10 +4,10 @@
     <section class="container mt-4">
         <div class="card shadow-sm border-0">
             <div class="card-header bg-warning d-flex justify-content-between align-items-center">
-                <h4 class="mb-0 fw-bold text-dark">Daftar Surat Pemberitahuan (Mading)</h4>
+                <h4 class="mb-0 fw-bold text-white ms-5">Daftar Surat Pemberitahuan</h4>
                 <div class="d-flex gap-2">
                     {{-- Tambah Mading --}}
-                    <button class="btn btn-success" data-crud="add" data-method="POST" data-title="Tambah Mading"
+                    <button class="btn bg-light text-muted" data-crud="add" data-method="POST" data-title="Tambah Mading"
                         data-url="{{ route('admin.mading.store') }}"
                         data-fields='{
                             "judul": {"label": "Judul", "placeholder":"Masukkan judul pemberitahuan", "hint":"Gunakan judul yang singkat dan jelas."},
@@ -24,7 +24,7 @@
                 <div class="table-responsive">
                     <table class="table table-hover table-striped mb-0">
                         <thead class="table-light">
-                            <tr>
+                            <tr class="text-center">
                                 <th>Judul</th>
                                 <th>Isi</th>
                                 <th class="text-center">Target Role</th>
@@ -33,7 +33,7 @@
                         </thead>
                         <tbody id="madingTableBody">
                             @forelse ($mading as $item)
-                                <tr>
+                                <tr class="text-center">
                                     <td>{{ $item->judul }}</td>
                                     <td>{{ $item->isi }}</td>
                                     <td class="text-center">

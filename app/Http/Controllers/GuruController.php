@@ -23,8 +23,24 @@ class GuruController extends Controller
         $this->middleware(function ($request, $next) {
             if ($request->is('guru/*')) {
                 $pengguna = Pengguna::find(session('pengguna_id'));
+
                 if (!$pengguna || $pengguna->role !== 'guru') {
-                    return redirect()->route('login')->with('error', 'Akses ditolak, silakan login sebagai guru.');
+                    Log::info('Auth guru gagal', [
+                        'expectsJson' => $request->expectsJson(),
+                        'accept' => $request->header('Accept'),
+                        'isAjax' => $request->ajax(),
+                        'url' => $request->fullUrl()
+                    ]);
+
+                    if ($request->expectsJson() || $request->ajax()) {
+                        return response()->json([
+                            'success' => false,
+                            'message' => 'Unauthenticated'
+                        ], 401);
+                    }
+
+                    return redirect()->route('login')
+                        ->with('error', 'Akses ditolak, silakan login sebagai guru.');
                 }
             }
             return $next($request);
@@ -277,6 +293,7 @@ class GuruController extends Controller
         try {
             $data = $request->validate([
                 'siswa_id' => 'required|exists:siswa,id',
+                'kelas_id' => 'required|exists:kelas,id',
                 'tanggal' => 'required|date',
                 'aktivitas' => 'required|string',
                 'catatan' => 'nullable|string',
@@ -298,6 +315,7 @@ class GuruController extends Controller
             AktivitasHarian::create($data);
             return response()->json(['success' => true, 'message' => 'Aktivitas harian berhasil ditambahkan.']);
         } catch (\Exception $e) {
+            Log::error($e);
             return response()->json(['success' => false, 'message' => $e->getMessage()], 500);
         }
     }

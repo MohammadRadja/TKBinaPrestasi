@@ -39,7 +39,7 @@
     </div>
     @include('layouts.auth.scripts')
     @notifyJs
-    @notifyRender
+    {{-- @notifyRender --}}
 </body>
 
 </html>

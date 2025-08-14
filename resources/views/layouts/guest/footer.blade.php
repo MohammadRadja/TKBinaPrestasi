@@ -6,21 +6,26 @@
                     <h2 class="logo d-flex align-items-center">
                         <a href="index.html" class="d-flex align-items-center">
                             <div class="icon">
-                                <img src="{{ asset('/asset/img/Logo.jpg') }}" alt="logo" class="logo" loading="lazy" />
+                                <img src="{{ asset('/asset/img/Logo.jpg') }}" alt="logo" class="logo"
+                                    loading="lazy" />
                             </div>
                         </a>
                     </h2>
                 </div>
             </div>
 
-             <!-- Quick Links -->
+            <!-- Quick Links -->
             <div class="col-md-3">
                 <h5 class="fw-bold mb-3">Quick Links</h5>
                 <ul class="list-unstyled">
-                    <li><a href="/" class="text-white text-decoration-none d-block mb-2"><i class="fas fa-angle-right me-2"></i>Beranda</a></li>
-                    <li><a href="/profil" class="text-white text-decoration-none d-block mb-2"><i class="fas fa-angle-right me-2"></i>Tentang Kami</a></li>
-                    <li><a href="/program" class="text-white text-decoration-none d-block mb-2"><i class="fas fa-angle-right me-2"></i>Program</a></li>
-                    <li><a href="/kontak" class="text-white text-decoration-none d-block"><i class="fas fa-angle-right me-2"></i>Kontak Kami</a></li>
+                    <li><a href="/" class="text-white text-decoration-none d-block mb-2"><i
+                                class="fas fa-angle-right me-2"></i>Beranda</a></li>
+                    <li><a href="/profil" class="text-white text-decoration-none d-block mb-2"><i
+                                class="fas fa-angle-right me-2"></i>Tentang Kami</a></li>
+                    <li><a href="/program" class="text-white text-decoration-none d-block mb-2"><i
+                                class="fas fa-angle-right me-2"></i>Program</a></li>
+                    <li><a href="/kontak" class="text-white text-decoration-none d-block"><i
+                                class="fas fa-angle-right me-2"></i>Kontak Kami</a></li>
                 </ul>
             </div>
 
@@ -28,8 +33,9 @@
             <div class="col-md-3">
                 <h5 class="fw-bold mb-3">Program</h5>
                 <ul class="list-unstyled">
-                    @foreach(['Silat','Melukis','Menari','Komputer','Tahfidz','Manasik Haji'] as $prog)
-                        <li><a href="/program" class="text-white text-decoration-none d-block mb-2"><i class="fas fa-angle-right me-2"></i>{{ $prog }}</a></li>
+                    @foreach (['Silat', 'Melukis', 'Menari', 'Komputer', 'Tahfidz', 'Manasik Haji'] as $prog)
+                        <li><a href="/program" class="text-white text-decoration-none d-block mb-2"><i
+                                    class="fas fa-angle-right me-2"></i>{{ $prog }}</a></li>
                     @endforeach
                 </ul>
             </div>
@@ -59,7 +65,7 @@
     </div>
     <div class="container-fluid bg-footer-bottom py-3">
         <div class="text-center">
-            <p class="mb-0 text-footer-bottom">&copy; 2024 TKIT Bina Prestasi. All Rights Reserved.</p>
+            <p class="mb-0 text-footer-bottom">&copy; {{ date('Y') }} TKIT Bina Prestasi. All Rights Reserved.</p>
         </div>
     </div>
 </footer>

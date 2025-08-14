@@ -14,11 +14,12 @@
                     </select>
 
                     {{-- Tambah Guru --}}
-                    <button class="btn btn-success" data-crud="add" data-method="POST" data-title="Tambah Guru"
-                        data-url="{{ route('admin.guru.store') }}"
+                    <button class="btn bg-light text-muted text-nowrap" data-crud="add" data-method="POST"
+                        data-title="Tambah Guru" data-url="{{ route('admin.guru.store') }}"
                         data-fields='{
                         "nama_lengkap": {"label": "Nama Lengkap", "placeholder":"Masukkan nama lengkap guru", "hint":"Gunakan huruf sesuai KTP."},
-                        "jenis_kelamin": {"label": "Jenis Kelamin", "type": "select", "options": ["Laki-laki","Perempuan"], "placeholder":"Pilih jenis kelamin"},
+                        "kelas_id": {"label": "Kelas", "type": "select", "options": @json($kelasList), "placeholder":"Pilih kelas"},
+                        "jenis_kelamin": {"label": "Jenis Kelamin", "type": "select", "options": {"L": "Laki-laki", "P": "Perempuan"}},
                         "tanggal_lahir": {"label": "Tanggal Lahir", "placeholder":"Contoh: 01-01-1990", "hint":"Tuliskan tanggal lahir lengkap."},
                         "agama": {"label": "Agama", "type": "select", "options": ["Islam","Kristen","Katolik","Hindu","Buddha","Konghucu","Lainnya"], "placeholder":"Pilih agama guru"},
                         "pendidikan_terakhir": {"label": "Pendidikan Terakhir", "placeholder":"Masukkan pendidikan terakhir"},
@@ -32,7 +33,7 @@
                     </button>
 
                     {{-- Export --}}
-                    <a href="{{ route('admin.guru.export') }}" class="btn btn-info btn-sm">
+                    <a href="{{ route('admin.guru.export') }}" class="btn bg-light text-muted text-nowrap btn-sm">
                         <i class="fas fa-file-export"></i> Export
                     </a>
                 </div>
@@ -43,7 +44,7 @@
                 <div class="table-responsive">
                     <table class="table table-hover table-striped mb-0">
                         <thead class="table-light">
-                            <tr>
+                            <tr class="text-center">
                                 <th>Nama Lengkap</th>
                                 <th>Kelas</th>
                                 <th>Jenis Kelamin</th>
@@ -59,9 +60,9 @@
                         </thead>
                         <tbody id="guruTableBody">
                             @forelse ($guru as $item)
-                                <tr>
+                                <tr class="text-center">
                                     <td>{{ $item->nama_lengkap }}</td>
-                                    <td>{{ $item->kelas->nama_kelas }}</td>
+                                    <td>{{ $item->kelas->tingkat ?? '-' }}</td>
                                     <td>{{ $item->jenis_kelamin }}</td>
                                     <td>{{ $item->tanggal_lahir }}</td>
                                     <td>{{ $item->agama }}</td>
@@ -78,7 +79,8 @@
                                                 data-url="{{ route('admin.guru.update', $item->pengguna_id) }}"
                                                 data-fields='{
                                                 "nama_lengkap": {"label": "Nama Lengkap", "placeholder":"Masukkan nama lengkap guru"},
-                                                "jenis_kelamin": {"label": "Jenis Kelamin", "type":"select", "options":["Laki-laki","Perempuan"], "placeholder":"Pilih jenis kelamin"},
+                                                "kelas_id": {"label": "Kelas", "type":"select", "options": @json($kelasList), "placeholder":"Pilih kelas"},
+                                                "jenis_kelamin": {"label": "Jenis Kelamin", "type": "select", "options": {"L": "Laki-laki", "P": "Perempuan"}}
                                                 "tanggal_lahir": {"label": "Tanggal Lahir", "placeholder":"Contoh: 01-01-1990"},
                                                 "agama": {"label": "Agama", "type":"select", "options":["Islam","Kristen","Katolik","Hindu","Buddha","Konghucu","Lainnya"], "placeholder":"Pilih agama"},
                                                 "pendidikan_terakhir": {"label": "Pendidikan Terakhir", "placeholder":"Masukkan pendidikan terakhir"},

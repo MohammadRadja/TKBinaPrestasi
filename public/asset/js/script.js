@@ -119,22 +119,25 @@ document.addEventListener("DOMContentLoaded", () => {
                         'meta[name="csrf-token"]'
                     ).content,
                     "X-Requested-With": "XMLHttpRequest",
+                    "Accept": "application/json"
                 },
                 body: formData,
             })
-                .then((res) => res.text())
-                .then((raw) => {
+                .then(async (res) => {
+                    const text = await res.text();
                     try {
-                        return JSON.parse(raw);
+                        return JSON.parse(text);
                     } catch {
-                        throw new Error("Response bukan JSON: " + raw);
+                        throw new Error("Response bukan JSON");
                     }
                 })
-                .then((response) =>
-                    response.success
-                        ? Alert.success(response.message)
-                        : Alert.error(response.message)
-                )
+                .then((response) => {
+                    if (response.success) {
+                        Alert.success(response.message);
+                    } else {
+                        Alert.error(response.message || "Terjadi kesalahan");
+                    }
+                })
                 .catch((err) => Alert.error(err.message));
         };
 
@@ -201,8 +204,8 @@ document.addEventListener("DOMContentLoaded", () => {
                 btn.dataset.crud === "add" ? "Tambah" : "Update";
             crudSaveBtn.className =
                 btn.dataset.crud === "add"
-                    ? "btn btn-success"
-                    : "btn btn-warning";
+                    ? "btn btn-primary"
+                    : "btn btn-primary";
 
             modal?.show();
         };

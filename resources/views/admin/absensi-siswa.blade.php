@@ -4,7 +4,7 @@
     <section class="container mt-4">
         <div class="card shadow-sm border-0">
             <div class="card-header bg-primary text-white d-flex justify-content-between align-items-center">
-                <h4 class="mb-0 fw-bold text-white">Daftar Absensi Siswa</h4>
+                <h4 class="mb-0 fw-bold text-white ms-5">Daftar Absensi Siswa</h4>
                 <div class="d-flex gap-2">
                     {{-- Sorting --}}
                     <select class="form-select form-select-sm" data-sort data-target="#absensiTableBody">
@@ -21,7 +21,7 @@
                 <div class="table-responsive">
                     <table class="table table-hover table-striped mb-0">
                         <thead class="table-light">
-                            <tr>
+                            <tr class="text-center">
                                 <th>Guru</th>
                                 <th>Nama Siswa</th>
                                 <th>Kelas</th>
@@ -32,7 +32,7 @@
                         </thead>
                         <tbody id="absensiTableBody">
                             @forelse ($absensi as $item)
-                                <tr>
+                                <tr class="text-center">
                                     <td>{{ $item->guru->nama_lengkap ?? '-' }}</td>
                                     <td>{{ $item->siswa->nama_lengkap ?? '-' }}</td>
                                     <td>{{ 'TK ' . $item->kelas->tingkat . ' - ' . $item->kelas->nama_kelas . ' (' . $item->kelas->tahun_ajaran . ')' }}
